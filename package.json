@@ -1,0 +1,27 @@
+{
+  "name": "meetingcompanion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maxi-F22/MeetingCompanion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maxi-F22/MeetingCompanion/issues"
+  },
+  "homepage": "https://github.com/Maxi-F22/MeetingCompanion#readme",
+  "dependencies": {
+    "@huggingface/inference": "^2.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
