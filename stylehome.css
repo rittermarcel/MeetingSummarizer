@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 h1 {
     font-size: 4em;
@@ -27,4 +28,7 @@ h1 {
 .rounded-button:hover {
     background-color: white; /* Weiße Füllung bei Hover */
     color: #1e1e1e; /* Dunkler Text bei Hover */
+}
+.introText {
+    margin-bottom: 100px;
 }

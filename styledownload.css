@@ -7,12 +7,18 @@
     margin-top: 80px;
     padding-left: 20px;
     padding-right: 20px;
+    flex-wrap: wrap;
+
 }
 h1 {
     font-size: 4em;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+.introText {
+    margin-bottom: 100px;
+ 
+ }
 .rounded-button {
     margin-top: 70px;
     display: inline-block;

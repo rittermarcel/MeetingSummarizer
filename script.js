@@ -1,6 +1,7 @@
 // ############################### Code ###############################
 
 var button = document.getElementsByClassName("record-button")[0];
+var recordButtonDiv = document.getElementsByClassName("record-button-div")[0];
 button?.addEventListener("click", startRecording);
 
 var text = document.getElementById("text-span");
@@ -15,6 +16,7 @@ var stream = null;
 
 async function startRecording() {
     if (!isRecording) {
+        button.innerHTML = "STOP RECORDING"
         text.innerHTML = "Recording...";
         stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
@@ -58,6 +60,7 @@ async function sendAudioToServer(audioBlob) {
             var result = await response.text();
             text.innerHTML += result;
             // added new Button via Server, add EventListener to that Button
+            recordButtonDiv.classList.add('hidden');
             var transcriptbutton = document.getElementsByClassName("record-button")[1];
             transcriptbutton?.addEventListener("click", sendTranscriptToServer);
         } else {
