@@ -1,0 +1,37 @@
+
+.smartphoneAndText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+h1 {
+    font-size: 4em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.rounded-button {
+    margin-top: 70px;
+    display: inline-block;
+    padding: 15px 40px; /* Abstand für eine ovale Form */
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase; /* Alle Buchstaben groß schreiben */
+    border: 2px solid white; /* Weiße Umrandung */
+    border-radius: 50px; /* Abgerundete Ecken */
+    background-color: transparent; /* Transparenter Hintergrund */
+    transition: all 0.3s ease; /* Animation für Hover */
+}
+.rounded-button:hover {
+    background-color: white; /* Weiße Füllung bei Hover */
+    color: #1e1e1e; /* Dunkler Text bei Hover */
+}
+.imageSmartphone {
+    scale: 130%;
+    padding-left: 100px;
+}
