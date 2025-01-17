@@ -112,6 +112,22 @@ div {
     max-width: 100px;
     top: -70px;
 }
+#img-div img {
+    max-width: 100px;
+}
+.icon {
+    width: 100px; /* Standardgröße für Icons */
+    height: 100px; /* Gleiche Höhe wie Breite für quadratische Icons */
+    display: inline-block; /* Inline-Block-Element */
+    border-radius: 50%; /* Runde Icons */
+    background-color: #007bff; /* Standardhintergrund (Blau) */
+    color: white; /* Icon-Inhalt in Weiß */
+    font-size: 24px; /* Schriftgröße des Icon-Inhalts */
+    text-align: center; /* Zentriert den Text horizontal */
+    line-height: 50px; /* Zentriert den Text vertikal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    transition: all 0.3s ease; /* Übergang für Hover-Animationen */
+}
 
 #loader-div {
     width: 100%;
@@ -119,9 +135,6 @@ div {
     justify-content: center;
 }
 
-#img-div img {
-    max-width: 100px;
-}
 
 #loader-div {
     width: 100%;
