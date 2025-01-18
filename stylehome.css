@@ -25,20 +25,20 @@ h1 {
     border: 2px solid white;
     border-radius: 50px;
     background-color: transparent;
-    transition: all 0.3s ease, box-shadow 0.3s ease; /* Sanfte Übergänge */
-    animation: bounce-in 2.5s ease-out; /* Schaltfläche springt leicht ein */
+    transition: all 0.3s ease, box-shadow 0.3s ease; 
+    animation: bounce-in 2.5s ease-out; 
 }
 
 .rounded-button:hover {
     background-color: white;
     color: #1e1e1e;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow-Effekt */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); 
 }
 .introText h1 {
     font-size: 3em;
     margin-bottom: 10px;
     color: white;
-    animation: slide-in-left 1.5s ease-out; /* Text gleitet von links ein */
+    animation: slide-in-left 1.5s ease-out; 
 }
 
 .introText h3 {
@@ -52,16 +52,16 @@ h1 {
     font-size: 1em;
     margin-bottom: 30px;
     color: #aaa;
-    animation: fade-in 2s ease-in-out; /* Text blendet ein */
+    animation: fade-in 2s ease-in-out; 
 }
 
 .imageSmartphone {
     flex: 1;
     max-width: 400px;
     margin-left: 20px;
-    transform: scale(1); /* Ausgangsgröße */
+    transform: scale(1); 
     display: block;
-    animation: slide-in-right 2s ease-out; /* Bild gleitet von rechts ein */
+    animation: slide-in-right 2s ease-out; 
 }
 
 .imageSmartphone img {
@@ -69,7 +69,7 @@ h1 {
     height: auto;
     display: block;
     transform-origin: center;
-    animation: zoom-in 2.5s ease-out; /* Bild zoomt leicht ein */
+    animation: zoom-in 2.5s ease-out; 
 }
 
 @keyframes fade-in {
@@ -125,5 +125,28 @@ h1 {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 480px) {
+    .smartphoneAndText {
+       padding: 20px;
+       margin-top: 30px;
+       gap: 0px;
+
+    }
+    .imageSmartphone {
+        margin-top: 50px;
+       display: flex;
+       justify-content: center;
+       margin-left: 0px;
+    }
+    .imageSmartphone img {
+        max-width: 50%;
     }
 }

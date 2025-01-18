@@ -16,7 +16,7 @@ body {
     padding: 10px 20px;
     border-radius: 30px 30px 0 0;
     margin-bottom: 40px;
-    animation: fade-in 1s ease-in-out; /* Einblenden der Navigation */
+    animation: fade-in 1s ease-in-out; 
 }
 
 .navbar a {
@@ -202,17 +202,18 @@ div {
     padding-left: 120px;
 } */
 .elements {
-    display: flex; /* Layout in einer horizontalen Reihe */
-    align-items: center; /* Vertikale Zentrierung der Inhalte */
-    justify-content: flex-start; /* Inhalte beginnen links */
-    width: 600px; /* Feste Breite des Containers */
+    display: flex;
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: flex-start; /* Startet den Inhalt links */
+    width: 80%; /* Nutzt 80% der verfügbaren Bildschirmbreite */
+    max-width: 600px; /* Begrenzung der maximalen Breite */
     margin: 20px auto; /* Zentriert den Container horizontal */
     padding: 20px;
-    background: #333333; /* Hintergrundfarbe */
+    background: #333333;
     border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Schatteneffekt */
-    transition: transform 0.2s, box-shadow 0.2s; /* Sanfte Animation */
-    height: auto; /* Höhe passt sich automatisch dem Inhalt an */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Schatten */
+    transition: width 0.3s ease; /* Animation für sanfte Anpassung */
+    height: auto; /* Passt die Höhe dynamisch an den Inhalt an */
 }
 .icon-container {
     display: flex; /* Flexbox für die gesamte Container-Ausrichtung */
@@ -222,10 +223,11 @@ div {
     flex-shrink: 0; /* Verhindert, dass der Container skaliert wird */
 }
 .summary-text {
-    flex: 1; /* Füllt den restlichen Platz */
+    flex: 1; /* Text nimmt den restlichen Platz ein */
     font-size: 16px;
-    line-height: 1.8;
-    padding-right: 20px;
+    line-height: 1.8; /* Angenehmer Zeilenabstand */
+    padding-right: 20px; /* Abstand zum Icon */
+    overflow-wrap: break-word; /* Zeilenumbruch bei langen Wörtern */
 }
 
 #text-span .headline {
@@ -286,7 +288,6 @@ div {
     border-radius: 8px; /* Abgerundete Ecken für einen modernen Look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Schatten für einen schwebenden Effekt */
     outline: none; /* Entfernt den Standard-Fokusrahmen */
-    margin: 20px auto; /* Zentriert das Element */
     max-width: 80%; /* Begrenzt die Breite für bessere Lesbarkeit */
     word-wrap: break-word; /* Zeilenumbrüche bei langen Wörtern */
     border: 1px solid #444; /* Dezente Rahmenlinie */
@@ -341,11 +342,7 @@ div {
 }
 
 
-@media (min-width: 1920px) {
-    body {
-        font-size: 30px;
-    }
-}
+
 
 @keyframes fade-in {
     0% {
@@ -401,4 +398,49 @@ div {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 30px;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        font-size: 20px;
+    }
+    .imageSmartphone {
+        margin-top: 50px;
+       display: flex;
+       justify-content: center;
+    }
+    .imageSmartphone img {
+        max-width: 80%;
+    }
+    .record-button {
+        padding: 10px 10px;
+        font-size: 28px;
+    }
+    .icon {
+        width: 50px; /* Standardgröße für Icons */
+        height: 50px; /* Gleiche Höhe wie Breite für quadratische Icons */
+    }
+    .elements {
+        width: 100%; /* Nutzt 80% der verfügbaren Bildschirmbreite */
+            margin: 0px 0; /* Zentriert den Container horizontal */
+            margin-bottom: 40px;
+            padding: 10px;
+        
+    }
+    #transcript-text {
+        max-width: 100%; /* Begrenzt die Breite für bessere Lesbarkeit */
+        padding: 0px; /* Innenabstand für mehr Platz um den Text */
+
+    }
+    #text-div {
+        padding-inline: 20px;
+    
+    }
+   
 }

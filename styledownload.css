@@ -66,9 +66,6 @@ h1 {
     animation: zoom-in 2.5s ease-out; /* Bild zoomt leicht ein */
 }
 
-@media (min-width: 1920px) {
-   
-}
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -122,6 +119,37 @@ h1 {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 480px) {
+    .smartphoneAndText {
+       padding: 20px;
+       gap: 0px;
+       margin-top: 10px;
+
+
+    }
+    .introText {
+        margin-bottom: 10px;
+        animation: slide-in-left 1.5s ease-out;
+    }
+    .imageSmartphone {
+        margin-top: 10px;
+       display: flex;
+       justify-content: center;
+       transform: scale(1);
+       padding-left: 0px;
+
+       margin-left: 0px;
+    }
+    
+    .imageSmartphone img {
+        max-width: 50%;
+
     }
 }
 
