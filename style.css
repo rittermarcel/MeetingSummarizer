@@ -67,7 +67,8 @@ div {
 
 .record-button-div {
     width: 100%;
-    height: 70vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
         display: flex;    
     flex-wrap: nowrap;
     justify-content: center;
@@ -98,41 +99,63 @@ div {
     right: 0;
     bottom: 0;
     border: 2px solid white; /* Weiße Ränder */
-    clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
-    animation: animate-border 4s infinite ease-in-out; /* Animation hinzufügen */
+    clip-path: inset(0%); /* Rechteckig bleiben */
+    animation: dashed-border 3s infinite ease-in-out; /* Animation für Randbewegung */
     z-index: -1; /* Hinter dem Text */
-    transition: border-color 0.3s ease; /* Sanfter Übergang bei Hover */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Sanfter Übergang bei Hover */
 }
 
-/* Animation für die Ränder */
-@keyframes animate-border {
-    0% {
-        clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
-    }
-    25% {
-        clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
-    }
-    50% {
-        clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0 80%, 0 20%);
-    }
-    75% {
-        clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
-    }
-    100% {
-        clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
-    }
-}
-
-/* Hover-Effekt: Farbänderung der Ränder */
 .record-button:hover::before {
     border-color: #00ffcc; /* Leuchtendes Türkis bei Hover */
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.7); /* Glüheffekt bei Hover */
+    animation: hover-dashed-border 3s infinite ease-in-out; /* Sanftere Animation bei Hover */
 }
 
 /* Text bleibt statisch */
 .record-button:hover {
     color: #00ffcc; /* Farbänderung des Textes */
 }
+
+/* Animation für animierte Lücken im Rand */
+@keyframes dashed-border {
+    0% {
+        border-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 0, 0, 1), rgba(255, 255, 255, 1));
+        border-image-slice: 1;
+    }
+    25% {
+        border-image: linear-gradient(90deg, rgba(255, 0, 0, 0.8), rgba(255, 255, 255, 1), rgba(255, 0, 0, 0.8));
+        border-image-slice: 1;
+    }
+    50% {
+        border-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 0, 0, 1), rgba(255, 255, 255, 1));
+        border-image-slice: 1;
+    }
+    75% {
+        border-image: linear-gradient(90deg, rgba(255, 0, 0, 0.8), rgba(255, 255, 255, 1), rgba(255, 0, 0, 0.8));
+        border-image-slice: 1;
+    }
+    100% {
+        border-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 0, 0, 1), rgba(255, 255, 255, 1));
+        border-image-slice: 1;
+    }
+}
+
+/* Zusätzliche Animation für Hover-Zustand */
+@keyframes hover-dashed-border {
+    0% {
+        border-image: linear-gradient(90deg, rgba(0, 255, 204, 1), rgba(255, 255, 255, 1), rgba(0, 255, 204, 1));
+        border-image-slice: 1;
+    }
+    50% {
+        border-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(0, 255, 204, 1), rgba(255, 255, 255, 1));
+        border-image-slice: 1;
+    }
+    100% {
+        border-image: linear-gradient(90deg, rgba(0, 255, 204, 1), rgba(255, 255, 255, 1), rgba(0, 255, 204, 1));
+        border-image-slice: 1;
+    }
+}
+
 
 
 .hidden {
@@ -141,46 +164,89 @@ div {
     visibility: hidden;
 }
     
-   
+.title-transcription-result {
+    font-weight: bold; /* Text hervorheben */
+    font-size: 1.5rem; /* Angemessene Größe */
+    color: #f0f0f0; /* Heller Text für Kontrast */
+    background-color: #4a4a4a; /* Dunkleres Grau für dezente Abhebung */
+    padding: 10px 15px; /* Innenabstand für besseren Lesefluss */
+    border-radius: 8px; /* Weiche, abgerundete Ecken */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Schatten für Tiefe */
+    text-align: center; /* Zentrierter Text */
+    margin: 20px auto; /* Abstand um das Element, zentriert durch Auto */
+    display: inline-block; /* Passt die Breite an den Inhalt an */
+    border: 1px solid #666; /* Dezente Rahmenlinie */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animierte Effekte bei Hover */
+}
+
+.title-transcription-result:hover {
+    transform: scale(1.05); /* Leichtes Vergrößern beim Hovern */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Intensiverer Schatten */
+}
 
 #text-div {
     padding-inline: 100px;
+
 }
 
 #text-span {
     color: white;
-    
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    flex-direction: column;
+    align-items: center; 
 }
 
-#text-span .summary-text {
+/* #text-span .summary-text {
     display: block;
     padding-left: 120px;
+} */
+.elements {
+    display: flex; /* Layout in einer horizontalen Reihe */
+    align-items: center; /* Vertikale Zentrierung der Inhalte */
+    justify-content: flex-start; /* Inhalte beginnen links */
+    width: 600px; /* Feste Breite des Containers */
+    margin: 20px auto; /* Zentriert den Container horizontal */
+    padding: 20px;
+    background: #333333; /* Hintergrundfarbe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Schatteneffekt */
+    transition: transform 0.2s, box-shadow 0.2s; /* Sanfte Animation */
+    height: auto; /* Höhe passt sich automatisch dem Inhalt an */
+}
+.icon-container {
+    display: flex; /* Flexbox für die gesamte Container-Ausrichtung */
+    align-items: center; /* Zentriert das Icon vertikal */
+    justify-content: center; /* Zentriert das Icon horizontal */
+    margin-right: 20px; /* Abstand zwischen Icon und Text */
+    flex-shrink: 0; /* Verhindert, dass der Container skaliert wird */
+}
+.summary-text {
+    flex: 1; /* Füllt den restlichen Platz */
+    font-size: 16px;
+    line-height: 1.8;
+    padding-right: 20px;
 }
 
 #text-span .headline {
     text-transform: capitalize;
 }
 
-#text-span .icon {
-    position: relative;
+/* #img-div img {
     max-width: 100px;
-    top: -70px;
-}
-#img-div img {
-    max-width: 100px;
-}
+} */
 .icon {
     width: 100px; /* Standardgröße für Icons */
     height: 100px; /* Gleiche Höhe wie Breite für quadratische Icons */
-    display: inline-block; /* Inline-Block-Element */
     border-radius: 50%; /* Runde Icons */
     background-color: #007bff; /* Standardhintergrund (Blau) */
-    color: white; /* Icon-Inhalt in Weiß */
-    font-size: 24px; /* Schriftgröße des Icon-Inhalts */
-    text-align: center; /* Zentriert den Text horizontal */
-    line-height: 50px; /* Zentriert den Text vertikal */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
     transition: all 0.3s ease; /* Übergang für Hover-Animationen */
+    display: flex; /* Flexbox für Inhalt im Icon */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    margin: 0; /* Entfernt überflüssige Abstände */
+    position: static; /* Entfernt das relative Positionieren */
 }
 
 #loader-div {
@@ -211,6 +277,34 @@ div {
     border-radius: 50%; 
     animation: spin 1s linear infinite; 
 }
+
+#transcript-text {
+    line-height: 1.6; /* Angenehmer Zeilenabstand */
+    color: #f0f0f0; /* Heller Text für guten Kontrast auf dunklem Hintergrund */
+    background-color: #262626; /* Dezent abgesetzter Hintergrund */
+    padding: 15px; /* Innenabstand für mehr Platz um den Text */
+    border-radius: 8px; /* Abgerundete Ecken für einen modernen Look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Schatten für einen schwebenden Effekt */
+    outline: none; /* Entfernt den Standard-Fokusrahmen */
+    margin: 20px auto; /* Zentriert das Element */
+    max-width: 80%; /* Begrenzt die Breite für bessere Lesbarkeit */
+    word-wrap: break-word; /* Zeilenumbrüche bei langen Wörtern */
+    border: 1px solid #444; /* Dezente Rahmenlinie */
+    transition: box-shadow 0.3s, background-color 0.3s; /* Animierte Übergänge */
+}
+
+/* Hover-Effekt */
+#transcript-text:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Intensiverer Schatten bei Hover */
+    background-color: #333; /* Helleres Grau beim Hovern */
+}
+
+/* Fokus-Styling für besseres UX */
+#transcript-text:focus {
+    border: 1px solid #888; /* Auffälliger Rahmen beim Fokussieren */
+    background-color: #3a3a3a; /* Etwas heller beim Fokussieren */
+}
+
 .headline {
     font-size: 24px; /* Größere Schriftgröße für Sichtbarkeit */
     font-weight: bold; /* Fettgedruckter Text */

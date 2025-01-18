@@ -78,7 +78,7 @@ async function transcribeRecording(audio) {
         // console.log('Transkriptions-Ergebnisse:', results.text);
         // result_text += "<b>Transkriptions-Ergebnisse:</b><br />" + results.text + "<br /><br /><br />";
         console.log('Transkriptions-Ergebnisse:', test_text);
-        result_text += "<b>Transkriptions-Ergebnisse wenn nötig korrigieren:</b><p contenteditable='true' id='transcript-text'>" + test_text + "</p><br />";
+        result_text += "<b class='title-transcription-result'>Transkriptions-Ergebnisse wenn nötig korrigieren:</b><p contenteditable='true' id='transcript-text'>" + test_text + "</p><br />";
         result_text += "<div class='record-button-div'><button class='record-button'>Send Transcript</button></div>";
 
         return result_text;
@@ -114,8 +114,7 @@ async function summarizeTranscript(text) {
 
             console.log('Keyword Extraction:', headline);
 
-            result_text += "<span class='summary-text'><b class='headline'>" + headline + "</b><br />";
-            result_text += sentence.includes(".") ? sentence  + "<br /></span>" : sentence + ".<br /></span>";
+            
 
 
             // ##################### Icon Creation ####################
@@ -129,7 +128,15 @@ async function summarizeTranscript(text) {
                 if (err) throw err;
                 console.log('Image Created');
             }); 
-            result_text += "<img class='icon' src='./public/temp/icons/" + headline.replaceAll(" ", "").toLowerCase() + ".png'></img><br />";
+            result_text += "<div class='elements'>"; 
+            result_text += "<div class='icon-container'>";
+            result_text += "<img class='icon' src='./public/temp/icons/" + headline.replaceAll(" ", "").toLowerCase() + ".png'></img>";
+            result_text += "</div>"; 
+            result_text += "<div class='summary-text'>";
+            result_text += "<b class='headline'>" + headline + "</b><br />";
+            result_text += sentence.includes(".") ? sentence + "<br />" : sentence + ".<br />";
+            result_text += "</div>";
+            result_text += "</div>";
         }
 
         return result_text;
