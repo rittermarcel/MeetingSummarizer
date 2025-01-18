@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 h1 {
-    font-size: 4em;
+    font-size: 3em;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
@@ -31,4 +31,7 @@ h1 {
 }
 .introText {
     margin-bottom: 100px;
+}
+.imageSmartphone {
+    scale: 130%;
 }

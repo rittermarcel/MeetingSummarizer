@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: rgb(34, 34, 34);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 16px;
 }
 
 .navbar {
@@ -23,6 +23,7 @@ body {
     text-decoration: none;
     padding: 10px 15px;
     transition: background-color 0.3s;
+    font-size: 0.75em;
 }
 
 .navbar a:hover {
@@ -45,6 +46,7 @@ body {
 .logo p {
     color: white;
     padding: 0px 20px;
+    font-size: 0.75em;
 }
 
 
@@ -157,6 +159,31 @@ div {
     border-radius: 50%; 
     animation: spin 1s linear infinite; 
 }
+.headline {
+    font-size: 24px; /* Größere Schriftgröße für Sichtbarkeit */
+    font-weight: bold; /* Fettgedruckter Text */
+    color: #ffffff; /* Weißer Text */
+    text-transform: uppercase; /* Großbuchstaben */
+    margin-bottom: 10px; /* Abstand zur Linie */
+    position: relative; /* Für die Linie unterhalb der Überschrift */
+}
+
+/* Linie unterhalb der Überschrift */
+.headline::after {
+    content: ""; /* Pseudo-Element für die Linie */
+    display: block; /* Block-Level für Breite */
+    width: 100px; /* Breite der Linie */
+    height: 3px; /* Höhe der Linie */
+    background-color: #007bff; /* Blaue Farbe für die Linie */
+    margin-top: 5px; /* Abstand vom Text zur Linie */
+    transition: width 0.3s ease; /* Sanfte Animation */
+}
+
+/* Hover-Effekt für die Linie */
+.headline:hover::after {
+    width: 150px; /* Breitere Linie bei Hover */
+}
+
 
 @keyframes spin {
     0% {
@@ -164,5 +191,12 @@ div {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 30px;
     }
 }
