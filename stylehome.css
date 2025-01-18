@@ -4,7 +4,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
+    margin-top: 100px;
 }
 h1 {
     font-size: 3em;
@@ -12,26 +14,116 @@ h1 {
     margin-bottom: 0px;
 }
 .rounded-button {
-    margin-top: 70px;
+    margin-top: 20px;
     display: inline-block;
-    padding: 15px 40px; /* Abstand für eine ovale Form */
+    padding: 15px 40px;
     font-size: 16px;
     font-weight: bold;
     color: white;
     text-decoration: none;
-    text-transform: uppercase; /* Alle Buchstaben groß schreiben */
-    border: 2px solid white; /* Weiße Umrandung */
-    border-radius: 50px; /* Abgerundete Ecken */
-    background-color: transparent; /* Transparenter Hintergrund */
-    transition: all 0.3s ease; /* Animation für Hover */
+    text-transform: uppercase;
+    border: 2px solid white;
+    border-radius: 50px;
+    background-color: transparent;
+    transition: all 0.3s ease, box-shadow 0.3s ease; /* Sanfte Übergänge */
+    animation: bounce-in 2.5s ease-out; /* Schaltfläche springt leicht ein */
 }
+
 .rounded-button:hover {
-    background-color: white; /* Weiße Füllung bei Hover */
-    color: #1e1e1e; /* Dunkler Text bei Hover */
+    background-color: white;
+    color: #1e1e1e;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow-Effekt */
 }
-.introText {
-    margin-bottom: 100px;
+.introText h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white;
+    animation: slide-in-left 1.5s ease-out; /* Text gleitet von links ein */
 }
+
+.introText h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ccc;
+    animation: slide-in-left 1.8s ease-out;
+}
+
+.introText p {
+    font-size: 1em;
+    margin-bottom: 30px;
+    color: #aaa;
+    animation: fade-in 2s ease-in-out; /* Text blendet ein */
+}
+
 .imageSmartphone {
-    scale: 130%;
+    flex: 1;
+    max-width: 400px;
+    margin-left: 20px;
+    transform: scale(1); /* Ausgangsgröße */
+    display: block;
+    animation: slide-in-right 2s ease-out; /* Bild gleitet von rechts ein */
+}
+
+.imageSmartphone img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: center;
+    animation: zoom-in 2.5s ease-out; /* Bild zoomt leicht ein */
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
