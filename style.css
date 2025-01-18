@@ -24,13 +24,13 @@ body {
     text-decoration: none;
     padding: 10px 15px;
     font-size: 0.6em;
-    transition: background-color 0.3s, transform 0.3s; /* Animation beim Hover */
+    transition: background-color 0.3s, transform 0.3s; 
 }
 
 .navbar a:hover {
     background-color: #575757;
     border-radius: 5px;
-    transform: scale(1.1); /* Leichte Vergrößerung beim Hover */
+    transform: scale(1.1); 
 }
 
 .navbar a.active {
@@ -38,7 +38,7 @@ body {
     background-color: white; 
     font-weight: bold; 
     border-radius: 5px;
-    transform: scale(1.1); /* Vergrößert den aktiven Link */
+    transform: scale(1.1); 
 }
 .navbar .menu {
     display: flex;
@@ -83,14 +83,13 @@ div {
     font-family: 'Arial', sans-serif;
     text-transform: uppercase;
     background: transparent;
-    border: none; /* Kein Standardrahmen */
+    border: none; 
     cursor: pointer;
     text-align: center;
     z-index: 1;
-    overflow: hidden; /* Verhindert, dass die Animation über den Button hinausgeht */
+    overflow: hidden; 
 }
 
-/* Dynamische animierte Ränder mit Pseudo-Element */
 .record-button::before {
     content: '';
     position: absolute;
@@ -98,25 +97,23 @@ div {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 2px solid white; /* Weiße Ränder */
-    clip-path: inset(0%); /* Rechteckig bleiben */
-    animation: dashed-border 3s infinite ease-in-out; /* Animation für Randbewegung */
-    z-index: -1; /* Hinter dem Text */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Sanfter Übergang bei Hover */
+    border: 2px solid white; 
+    clip-path: inset(0%); 
+    animation: dashed-border 3s infinite ease-in-out; 
+    z-index: -1; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .record-button:hover::before {
-    border-color: #00ffcc; /* Leuchtendes Türkis bei Hover */
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7); /* Glüheffekt bei Hover */
-    animation: hover-dashed-border 3s infinite ease-in-out; /* Sanftere Animation bei Hover */
+    border-color: #00ffcc; 
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7); 
+    animation: hover-dashed-border 3s infinite ease-in-out; 
 }
 
-/* Text bleibt statisch */
 .record-button:hover {
-    color: #00ffcc; /* Farbänderung des Textes */
+    color: #00ffcc; 
 }
 
-/* Animation für animierte Lücken im Rand */
 @keyframes dashed-border {
     0% {
         border-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 0, 0, 1), rgba(255, 255, 255, 1));
@@ -140,7 +137,6 @@ div {
     }
 }
 
-/* Zusätzliche Animation für Hover-Zustand */
 @keyframes hover-dashed-border {
     0% {
         border-image: linear-gradient(90deg, rgba(0, 255, 204, 1), rgba(255, 255, 255, 1), rgba(0, 255, 204, 1));
@@ -165,23 +161,23 @@ div {
 }
     
 .title-transcription-result {
-    font-weight: bold; /* Text hervorheben */
-    font-size: 1.5rem; /* Angemessene Größe */
-    color: #f0f0f0; /* Heller Text für Kontrast */
-    background-color: #4a4a4a; /* Dunkleres Grau für dezente Abhebung */
-    padding: 10px 15px; /* Innenabstand für besseren Lesefluss */
-    border-radius: 8px; /* Weiche, abgerundete Ecken */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Schatten für Tiefe */
-    text-align: center; /* Zentrierter Text */
-    margin: 20px auto; /* Abstand um das Element, zentriert durch Auto */
-    display: inline-block; /* Passt die Breite an den Inhalt an */
-    border: 1px solid #666; /* Dezente Rahmenlinie */
-    transition: transform 0.2s, box-shadow 0.2s; /* Animierte Effekte bei Hover */
+    font-weight: bold;
+    font-size: 1.5rem; 
+    color: #f0f0f0; 
+    background-color: #4a4a4a; 
+    padding: 10px 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    text-align: center; 
+    margin: 20px auto; 
+    display: inline-block; 
+    border: 1px solid #666; 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 .title-transcription-result:hover {
-    transform: scale(1.05); /* Leichtes Vergrößern beim Hovern */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Intensiverer Schatten */
+    transform: scale(1.05); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); 
 }
 
 #text-div {
@@ -192,63 +188,58 @@ div {
 #text-span {
     color: white;
     display: flex;
-    justify-content: center; /* Horizontal zentrieren */
+    justify-content: center; 
     flex-direction: column;
     align-items: center; 
 }
 
-/* #text-span .summary-text {
-    display: block;
-    padding-left: 120px;
-} */
+
 .elements {
     display: flex;
-    align-items: center; /* Zentriert den Inhalt vertikal */
-    justify-content: flex-start; /* Startet den Inhalt links */
-    width: 80%; /* Nutzt 80% der verfügbaren Bildschirmbreite */
-    max-width: 600px; /* Begrenzung der maximalen Breite */
-    margin: 20px auto; /* Zentriert den Container horizontal */
+    align-items: center; 
+    justify-content: flex-start; 
+    width: 80%; 
+    max-width: 600px; 
+    margin: 20px auto; 
     padding: 20px;
     background: #333333;
-    border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Schatten */
-    transition: width 0.3s ease; /* Animation für sanfte Anpassung */
-    height: auto; /* Passt die Höhe dynamisch an den Inhalt an */
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+    transition: width 0.3s ease; 
+    height: auto; 
 }
 .icon-container {
-    display: flex; /* Flexbox für die gesamte Container-Ausrichtung */
-    align-items: center; /* Zentriert das Icon vertikal */
-    justify-content: center; /* Zentriert das Icon horizontal */
-    margin-right: 20px; /* Abstand zwischen Icon und Text */
-    flex-shrink: 0; /* Verhindert, dass der Container skaliert wird */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-right: 20px; 
+    flex-shrink: 0; 
 }
 .summary-text {
-    flex: 1; /* Text nimmt den restlichen Platz ein */
+    flex: 1; 
     font-size: 16px;
-    line-height: 1.8; /* Angenehmer Zeilenabstand */
-    padding-right: 20px; /* Abstand zum Icon */
-    overflow-wrap: break-word; /* Zeilenumbruch bei langen Wörtern */
+    line-height: 1.8; 
+    padding-right: 20px; 
+    overflow-wrap: break-word; 
 }
 
 #text-span .headline {
     text-transform: capitalize;
 }
 
-/* #img-div img {
-    max-width: 100px;
-} */
+
 .icon {
-    width: 100px; /* Standardgröße für Icons */
-    height: 100px; /* Gleiche Höhe wie Breite für quadratische Icons */
-    border-radius: 50%; /* Runde Icons */
-    background-color: #007bff; /* Standardhintergrund (Blau) */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-    transition: all 0.3s ease; /* Übergang für Hover-Animationen */
-    display: flex; /* Flexbox für Inhalt im Icon */
-    align-items: center; /* Zentriert den Inhalt vertikal */
-    justify-content: center; /* Zentriert den Inhalt horizontal */
-    margin: 0; /* Entfernt überflüssige Abstände */
-    position: static; /* Entfernt das relative Positionieren */
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background-color: #007bff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 0; 
+    position: static; 
 }
 
 #loader-div {
@@ -281,54 +272,51 @@ div {
 }
 
 #transcript-text {
-    line-height: 1.6; /* Angenehmer Zeilenabstand */
-    color: #f0f0f0; /* Heller Text für guten Kontrast auf dunklem Hintergrund */
-    background-color: #262626; /* Dezent abgesetzter Hintergrund */
-    padding: 15px; /* Innenabstand für mehr Platz um den Text */
-    border-radius: 8px; /* Abgerundete Ecken für einen modernen Look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Schatten für einen schwebenden Effekt */
-    outline: none; /* Entfernt den Standard-Fokusrahmen */
-    max-width: 80%; /* Begrenzt die Breite für bessere Lesbarkeit */
-    word-wrap: break-word; /* Zeilenumbrüche bei langen Wörtern */
-    border: 1px solid #444; /* Dezente Rahmenlinie */
-    transition: box-shadow 0.3s, background-color 0.3s; /* Animierte Übergänge */
+    line-height: 1.6; 
+    color: #f0f0f0; 
+    background-color: #262626; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    outline: none;
+    max-width: 80%; 
+    word-wrap: break-word; 
+    border: 1px solid #444;
+    transition: box-shadow 0.3s, background-color 0.3s; 
 }
 
-/* Hover-Effekt */
 #transcript-text:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Intensiverer Schatten bei Hover */
-    background-color: #333; /* Helleres Grau beim Hovern */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); 
+    background-color: #333; 
 }
 
-/* Fokus-Styling für besseres UX */
 #transcript-text:focus {
-    border: 1px solid #888; /* Auffälliger Rahmen beim Fokussieren */
-    background-color: #3a3a3a; /* Etwas heller beim Fokussieren */
+    border: 1px solid #888; 
+    background-color: #3a3a3a; 
 }
 
 .headline {
-    font-size: 24px; /* Größere Schriftgröße für Sichtbarkeit */
-    font-weight: bold; /* Fettgedruckter Text */
-    color: #ffffff; /* Weißer Text */
-    text-transform: uppercase; /* Großbuchstaben */
-    margin-bottom: 10px; /* Abstand zur Linie */
-    position: relative; /* Für die Linie unterhalb der Überschrift */
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+    position: relative; 
 }
 
-/* Linie unterhalb der Überschrift */
 .headline::after {
-    content: ""; /* Pseudo-Element für die Linie */
-    display: block; /* Block-Level für Breite */
-    width: 100px; /* Breite der Linie */
-    height: 3px; /* Höhe der Linie */
-    background-color: #007bff; /* Blaue Farbe für die Linie */
-    margin-top: 5px; /* Abstand vom Text zur Linie */
-    transition: width 0.3s ease; /* Sanfte Animation */
+    content: ""; 
+    display: block; 
+    width: 100px; 
+    height: 3px; 
+    background-color: #007bff; 
+    margin-top: 5px; 
+    transition: width 0.3s ease; 
 }
 
-/* Hover-Effekt für die Linie */
+
 .headline:hover::after {
-    width: 150px; /* Breitere Linie bei Hover */
+    width: 150px; 
 }
 
 
@@ -423,19 +411,19 @@ div {
         font-size: 28px;
     }
     .icon {
-        width: 50px; /* Standardgröße für Icons */
-        height: 50px; /* Gleiche Höhe wie Breite für quadratische Icons */
+        width: 50px; 
+        height: 50px; 
     }
     .elements {
-        width: 100%; /* Nutzt 80% der verfügbaren Bildschirmbreite */
-            margin: 0px 0; /* Zentriert den Container horizontal */
+        width: 100%; 
+            margin: 0px 0; 
             margin-bottom: 40px;
             padding: 10px;
         
     }
     #transcript-text {
-        max-width: 100%; /* Begrenzt die Breite für bessere Lesbarkeit */
-        padding: 0px; /* Innenabstand für mehr Platz um den Text */
+        max-width: 100%; 
+        padding: 0px; 
 
     }
     #text-div {

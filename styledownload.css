@@ -43,7 +43,7 @@ h1 {
     border-radius: 50px;
     background-color: transparent;
     transition: all 0.3s ease, box-shadow 0.3s ease;
-    animation: bounce-in 2s ease-out; /* Springt leicht ein */
+    animation: bounce-in 2s ease-out; 
 }
 
 .rounded-button:hover {
@@ -55,7 +55,7 @@ h1 {
     margin-top: 100px;
     transform: scale(1.5);
     padding-left: 100px;
-    animation: slide-in-right 2s ease-out; /* Bild gleitet von rechts ein */
+    animation: slide-in-right 2s ease-out; 
 }
 
 .imageSmartphone img {
@@ -63,7 +63,7 @@ h1 {
     height: auto;
     display: block;
     transform-origin: center;
-    animation: zoom-in 2.5s ease-out; /* Bild zoomt leicht ein */
+    animation: zoom-in 2.5s ease-out; 
 }
 
 @keyframes fade-in {
