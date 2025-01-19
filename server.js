@@ -69,7 +69,7 @@ async function transcribeRecording(audio) {
         var result_text = "";
 
         var test_text = "Good Morning everyone, shall we start our meeting? Alright, the first order of business today is designing the new remote for our flagship TV. Do you have any idea to improve upon the original design, Marcel? Yes, i think we should add new buttons with new functions. Ok, and what kind of buttons do you propose? You know, buttons to open specific apps and immediately switch to the last used app and so on, do you agree Sven? Yes, that sounds good. One idea i had is to also add speech recognition to our TV. What do you think Maxi? Oh i'm sorry i wasn't really listening. I'm thinking about the last episode of Squid Game season 2. Crazy what happened right? Sorry but now is not the time to talk about that. You're right, i'm sorry. I think Marcel's ideas are very good and pretty easily programmable. Alright then it's settled. Noam, do you have anything to talk about? Yes what should we bring to saturday's office party? I'm going to bring my famous salad, but do you need anything else? Umm, no not really. Alright then, i think we talked about everything and can end this meeting now. Goodbye everybody.";
-
+console.log(audio);
         // ##################### Speech Recognition ####################
         // const results = await inference.automaticSpeechRecognition({
         //     model: speechRecogModel,
@@ -154,6 +154,7 @@ async function summarizeTranscript(text) {
             }
             sentence_count += 1;
         }
+        result_text += "<div class='record-button-div'><button class='record-button'>Als PDF exportieren</button></div>"
 
         return result_text;
     } catch (error) {
