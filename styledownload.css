@@ -52,11 +52,11 @@ h1 {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 .imageSmartphone {
-    margin-top: 100px;
-    transform: scale(1);
+    flex: 1;
     max-width: 400px;
-
-    padding-left: 100px;
+    margin-left: 20px;
+    transform: scale(1); 
+    display: block;
     animation: slide-in-right 2s ease-out; 
 }
 
