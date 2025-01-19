@@ -57,7 +57,7 @@ h1 {
 
 .imageSmartphone {
     flex: 1;
-    max-width: 400px;
+    max-width: 600px;
     margin-left: 20px;
     transform: scale(1); 
     display: block;

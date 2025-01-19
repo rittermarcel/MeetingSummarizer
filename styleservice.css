@@ -8,6 +8,9 @@
     margin-top: 100px;
     animation: fade-in 1.5s ease-in-out;
 }
+.imageSmartphone {
+    max-width: 600px;
+}
 
 .imageSmartphone img {
     max-width: 100%;

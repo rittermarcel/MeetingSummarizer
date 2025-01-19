@@ -53,7 +53,9 @@ h1 {
 }
 .imageSmartphone {
     margin-top: 100px;
-    transform: scale(1.5);
+    transform: scale(1);
+    max-width: 400px;
+
     padding-left: 100px;
     animation: slide-in-right 2s ease-out; 
 }
