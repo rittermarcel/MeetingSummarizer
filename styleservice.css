@@ -150,14 +150,14 @@ h1 {
 
 @media (max-width: 480px) {
     .smartphoneAndText {
-       padding: 20px;
+       padding-right: 20px;
        gap: 0px;
-       margin-top: 10px;
+       margin-top: 0px;
 
 
     }
     .introText {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         animation: slide-in-left 1.5s ease-out;
     }
     .imageSmartphone {
@@ -173,5 +173,30 @@ h1 {
     .imageSmartphone img {
         max-width: 50%;
 
+    }
+  
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1920px) {
+    .smartphoneAndText {
+        margin-top: 40px;
+    }
+    .imageSmartphone {
+        max-width: 400px;
+    }
+    .introText {
+        max-width: 600px;
+        text-align: right;
+        margin-bottom: 100px;
+        animation: slide-in-right 1.5s ease-out; /* Text gleitet von rechts ein */
     }
 }

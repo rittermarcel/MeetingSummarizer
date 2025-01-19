@@ -151,6 +151,19 @@ h1 {
     }
 }
 
+@media (max-width: 1920px) {
+    .imageSmartphone img {
+        max-width: 100%;
+    }
+    .smartphoneAndText {
+        margin-top: 40px;
+    }
+    .imageSmartphone {
+        max-width: 350px;
+    }
+
+}
+
 
 @media (max-width: 768px) {
   
@@ -158,18 +171,22 @@ h1 {
 
 @media (max-width: 480px) {
     .smartphoneAndText {
-       padding: 20px;
-       margin-top: 30px;
+       padding-left: 20px;
+       margin-top: 10px;
        gap: 0px;
 
     }
     .imageSmartphone {
-        margin-top: 50px;
-       display: flex;
-       justify-content: center;
+        margin-top: 10px;
+
        margin-left: 0px;
     }
     .imageSmartphone img {
         max-width: 50%;
+    }
+    .introText p {
+        font-size: 1em;
+        margin-bottom: 10px;
+
     }
 }

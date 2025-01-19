@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: rgb(34, 34, 34);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .navbar {
@@ -396,9 +396,24 @@ div {
         font-size: 30px;
     }
 }
+@media (max-width: 1920px) {
+    .navbar a {
+        font-size: 0.7em;
+    }
+    .logo p {
+        font-size: 0.7em;
+    }
+}
+
 @media (max-width: 480px) {
     body {
         font-size: 20px;
+    }
+    .navbar a {
+        font-size: 0.5em;
+    }
+    .logo p {
+        font-size: 0.5em;
     }
     .imageSmartphone {
         margin-top: 50px;

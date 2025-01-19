@@ -151,10 +151,9 @@ h1 {
 
 @media (max-width: 480px) {
     .smartphoneAndText {
-       padding: 20px;
+       padding-left: 20px;
        gap: 0px;
-       margin-top: 10px;
-
+       margin-top: 0px;
 
     }
     .introText {
@@ -162,11 +161,10 @@ h1 {
         animation: slide-in-left 1.5s ease-out;
     }
     .imageSmartphone {
-        margin-top: 10px;
-       display: flex;
-       justify-content: center;
+        margin-top: 0px;
        transform: scale(1);
        padding-left: 0px;
+       max-width: 0px;
 
        margin-left: 0px;
     }
@@ -174,6 +172,24 @@ h1 {
     .imageSmartphone img {
         max-width: 50%;
 
+    }
+}
+@media (max-width: 1920px) {
+    .smartphoneAndText {
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+    .imageSmartphone {
+        flex: 1;
+        max-width: 230px;
+    }
+    .introText p {
+        max-width: 600px;
+
+    }
+    
+    .imageSmartphone img {
+        max-width: 100%;
     }
 }
 
