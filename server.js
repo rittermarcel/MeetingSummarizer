@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
+import puppeteer from 'puppeteer';
 
 dotenv.config();
 
@@ -154,7 +155,14 @@ async function summarizeTranscript(text) {
             }
             sentence_count += 1;
         }
-        result_text += "<div class='record-button-div'><button class='record-button'>Als PDF exportieren</button></div>"
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+
+        await page.setContent(result_text);
+
+        await page.pdf({ path: 'output.pdf', format: 'A4', printBackground: true });
+        result_text += "<div class='record-button-div'><a href='output.pdf' download='Zusammenfassung'><button class='record-button'>Als PDF exportieren</button></a></div>"
+        
 
         return result_text;
     } catch (error) {
