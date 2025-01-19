@@ -67,19 +67,20 @@ const imgModel = 'black-forest-labs/FLUX.1-schnell';
 async function transcribeRecording(audio) {
     try {
         var result_text = "";
-        var test_text = "Hi! Hello How are you today? I'm very good thank you. Should we start? Yes. We have to design the new Remote. Yes how about we add Buttons, Noam? Oh yes Marcel that is a very good idea. What do you think Maxi? I think its awesome. I am going to bring sausages to saturdays party. Oh yes thank you."
+
+        var test_text = "Good Morning everyone, shall we start our meeting? Alright, the first order of business today is designing the new remote for our flagship TV. Do you have any idea to improve upon the original design, Marcel? Yes, i think we should add new buttons with new functions. Ok, and what kind of buttons do you propose? You know, buttons to open specific apps and immediately switch to the last used app and so on, do you agree Sven? Yes, that sounds good. One idea i had is to also add speech recognition to our TV. What do you think Maxi? Oh i'm sorry i wasn't really listening. I'm thinking about the last episode of Squid Game season 2. Crazy what happened right? Sorry but now is not the time to talk about that. You're right, i'm sorry. I think Marcel's ideas are very good and pretty easily programmable. Alright then it's settled. Noam, do you have anything to talk about? Yes what should we bring to saturday's office party? I'm going to bring my famous salad, but do you need anything else? Umm, no not really. Alright then, i think we talked about everything and can end this meeting now. Goodbye everybody.";
 
         // ##################### Speech Recognition ####################
         // const results = await inference.automaticSpeechRecognition({
         //     model: speechRecogModel,
         //     data: audio
         // });
-        
-        // console.log('Transkriptions-Ergebnisse:', results.text);
-        // result_text += "<b>Transkriptions-Ergebnisse:</b><br />" + results.text + "<br /><br /><br />";
+
         console.log('Transkriptions-Ergebnisse:', test_text);
+
         result_text += "<b class='title-transcription-result'>Transkriptions-Ergebnisse wenn nötig korrigieren:</b><p contenteditable='true' id='transcript-text'>" + test_text + "</p><br />";
-        result_text += "<div class='record-button-div'><button class='record-button'>Send Transcript</button></div>";
+
+        result_text += "<div class='record-button-div'><button class='record-button'>Zusammenfassung erstellen</button></div>";
 
         return result_text;
     } catch (error) {
@@ -99,44 +100,59 @@ async function summarizeTranscript(text) {
         });
         
         console.log('Summarization-Ergebnisse:', sum_results.summary_text);
+
         var summary_arr = sum_results.summary_text.split(". ");
 
+        var sentence_count = 0;
 
         // ##################### Headlines ####################
         for (var sentence of summary_arr) {
-            const key_results = await inference.summarization({
-                model: keywordModel, 
-                inputs: sentence
-            });
+            if (sentence_count < 3) {
+
+                const key_results = await inference.summarization({
+                    model: keywordModel, 
+                    inputs: sentence
+                });
+
+                var headline = key_results.summary_text.split(", ");
+                headline = headline[1];
+                console.log(headline);
+
+                // ##################### Icon Creation ####################
+                const image_results = await inference.textToImage({
+                    model: imgModel, 
+                    inputs: headline + " round app icon, no text"
+                });
+                
+                console.log("Text-to-Image-Ergebnisse für " + headline + ": ", image_results);
+
+
+                fs.writeFile('./public/temp/icons/' + headline.replaceAll(" ", "").toLowerCase() + '.png', await image_results.arrayBuffer().then((arrayBuffer) => Buffer.from(arrayBuffer, "binary")), function (err) {
+                    if (err) throw err;
+                    console.log('Image Created');
+                }); 
             
-            var headline = key_results.summary_text.split(", ");
-            headline = headline[headline.length-1];
-
-            console.log('Keyword Extraction:', headline);
-
-            
-
-
-            // ##################### Icon Creation ####################
-            const image_results = await inference.textToImage({
-                model: imgModel, 
-                inputs: headline + " app icon"
-            });
-            
-            console.log('Text-to-Image-Ergebnisse:', image_results);
-            fs.writeFile('./public/temp/icons/' + headline.replaceAll(" ", "").toLowerCase() + '.png', await image_results.arrayBuffer().then((arrayBuffer) => Buffer.from(arrayBuffer, "binary")), function (err) {
-                if (err) throw err;
-                console.log('Image Created');
-            }); 
-            result_text += "<div class='elements'>"; 
-            result_text += "<div class='icon-container'>";
-            result_text += "<img class='icon' src='./public/temp/icons/" + headline.replaceAll(" ", "").toLowerCase() + ".png'></img>";
-            result_text += "</div>"; 
-            result_text += "<div class='summary-text'>";
-            result_text += "<b class='headline'>" + headline + "</b><br />";
-            result_text += sentence.includes(".") ? sentence + "<br />" : sentence + ".<br />";
-            result_text += "</div>";
-            result_text += "</div>";
+                result_text += "<div class='elements'>"; 
+                result_text += "<div class='icon-container'>";
+                result_text += "<img class='icon' src='./public/temp/icons/" + headline.replaceAll(" ", "").toLowerCase() + ".png'></img>";
+                result_text += "</div>"; 
+                result_text += "<div class='summary-text'>";
+                result_text += "<b class='headline'>" + headline + "</b><br />";
+                result_text += sentence.includes(".") ? sentence + "<br />" : sentence + ".<br />";
+                result_text += "</div>";
+                result_text += "</div>";
+            }
+            else {
+                result_text += "<div class='elements'>"; 
+                result_text += "<div class='icon-container'>";
+                result_text += "</div>"; 
+                result_text += "<div class='summary-text'>";
+                result_text += "<b class='headline'>" + "Andere Themen" + "</b><br />";
+                result_text += sentence.includes(".") ? sentence + "<br />" : sentence + ".<br />";
+                result_text += "</div>";
+                result_text += "</div>";
+            }
+            sentence_count += 1;
         }
 
         return result_text;

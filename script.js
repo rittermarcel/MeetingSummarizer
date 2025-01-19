@@ -16,8 +16,8 @@ var stream = null;
 
 async function startRecording() {
     if (!isRecording) {
-        button.innerHTML = "STOP RECORDING"
-        text.innerHTML = "Recording...";
+        button.innerHTML = "AUFNAHME STOPPEN"
+        text.innerHTML = "AUFNEHMEN...";
         stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
         const audioChunks = [];
@@ -91,7 +91,7 @@ async function sendTranscriptToServer() {
             loader.style.display = "none";
 
             var result = await response.text();
-            text.innerHTML += result;
+            text.innerHTML = result;
         } else {
             loader.style.display = "none";
             console.error('Fehler beim Senden der Anfrage:', response.statusText);
