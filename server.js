@@ -77,7 +77,7 @@ console.log(audio);
             data: audio
         });
 
-        console.log('Transkriptions-Ergebnisse:', test_text);
+        console.log('Transkriptions-Ergebnisse:', results.text);
 
         result_text += "<b class='title-transcription-result'>Transkriptions-Ergebnisse wenn nötig korrigieren:</b><p contenteditable='true' id='transcript-text'>" + results.text + "</p><br />";
 
