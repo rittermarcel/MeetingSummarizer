@@ -2,7 +2,7 @@
 
 This project is about creating an AI Meeting Summarization Webapp.
 
-Sven Schirmaier, Marcel Ritter, Noam Harmann, Maximilian Flack
+Sven Schirmaier, Marcel Ritter, Noam Hartmann, Maximilian Flack
 
 ## How to run locally:
 
