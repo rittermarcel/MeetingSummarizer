@@ -1,4 +1,4 @@
-# MeetingSummarizer
+# MeetingCompanion
 
 This project is about creating an AI Meeting Summarization Webapp.
 
